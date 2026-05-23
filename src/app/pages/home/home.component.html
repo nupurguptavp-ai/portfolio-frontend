@@ -2,3 +2,8 @@
 <p>Angular + Node + AWS Developer</p>
 
 <p>{{ message }}</p>
+
+<div *ngFor="let project of projects">
+    <h2>{{ project.title }}</h2>
+    <p>{{ project.description }}</p>
+</div>
