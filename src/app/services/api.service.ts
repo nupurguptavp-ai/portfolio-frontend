@@ -2,10 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ApiService {
-
   http = inject(HttpClient);
 
   //AWS Learning
@@ -13,11 +12,19 @@ export class ApiService {
 
   getHealth() {
     return this.http.get(`${this.apiUrl}/health`, {
-      responseType: 'text'
+      responseType: 'text',
     });
   }
 
-  getProjects(){
-    return this.http.get<any[]>(`${this.apiUrl}/projects`)
+  getProjects() {
+    return this.http.get<any[]>(`${this.apiUrl}/projects`);
+  }
+
+  createProject(data: any) {
+    return this.http.post(`${this.apiUrl}/projects`, data);
+  }
+
+  deleteProject(id: any) {
+    return this.http.delete(`${this.apiUrl}/projects/${id}`);
   }
 }
